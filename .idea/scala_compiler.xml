@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <option name="separateProdTestSources" value="true" />
+    <profile name="sbt 1" modules="scala_sbt,scala_sbt.main,scala_sbt.test,spark-scala-learning_2611,spark-scala-learning_2611.main,spark-scala-learning_2611.test" />
+  </component>
+</project>
