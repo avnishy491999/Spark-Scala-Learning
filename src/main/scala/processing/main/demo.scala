@@ -1,7 +1,8 @@
 package processing.main
 
 import org.apache.spark.sql.SparkSession
-import processing.tranformation.{createDataFrameUsingCaseClass, createDataFrameUsingList, createDataFrameUsingRdd, createDataFrameUsingSchema, createDataFrameUsingSeq}
+import processing.operation.{RddDay1Transformation, RddDay2Transformation, RddDay3Transformation, ScalaPractice}
+import processing.tranformation.{createDataFrameUsingCaseClass, createDataFrameUsingDiffMethod, createDataFrameUsingList, createDataFrameUsingRdd, createDataFrameUsingSchema, createDataFrameUsingSeq}
 
 object demo{
   def main(args: Array[String]): Unit = {
@@ -10,27 +11,16 @@ object demo{
     println("spark session is created")
 
     //different ways to create a dataframe
+   // val dataFrameUsingDiffMethods = createDataFrameUsingDiffMethod.run(spark)
 
-//    val sequenceDf = createDataFrameUsingSeq.usingSequence(spark)
-//
-//    val caseClassDf = createDataFrameUsingCaseClass.usingCaseClass(spark)
+    val rddDay1 = RddDay1Transformation.run(spark)
+    val scalaPractice = ScalaPractice.run(spark)
+    val rddDay2 = RddDay2Transformation.run(spark)
+  //val rddDay3 = RddDay3Transformation.run(spark)
 
-  // val rddDf = createDataFrameUsingRdd.usingRdd(spark)
-//
-//    val schemDf = createDataFrameUsingSchema.
-
-   // val ListDf = createDataFrameUsingList.usingList(spark)
-
-    val carsArray = Array("BMW","Audi","bentley","Mercedes","suzuki","TATA")
-    val carsRDD = spark.sparkContext.parallelize(carsArray,2)
-
-    val carsWithBrdd = carsRDD.map(x=>(x,x.startsWith("B")))
-
-    val carsWithLengthRdd = carsRDD.map(carname=>(carname,carname.length))
-    println("carsRDD")
-    println(carsWithLengthRdd.collect().mkString(","))
-
-
+//    println("Press ENTER to exit and close Spark UI...")
+//    scala.io.StdIn.readLine()
+//    spark.stop()
 
 
   }
