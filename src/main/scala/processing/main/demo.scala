@@ -16,7 +16,7 @@ object demo{
     val rddDay1 = RddDay1Transformation.run(spark)
     val scalaPractice = ScalaPractice.run(spark)
     val rddDay2 = RddDay2Transformation.run(spark)
-  //val rddDay3 = RddDay3Transformation.run(spark)
+    val rddDay3 = RddDay3Transformation.run(rddDay2,spark)
 
 //    println("Press ENTER to exit and close Spark UI...")
 //    scala.io.StdIn.readLine()
